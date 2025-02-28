@@ -55,6 +55,14 @@
                (def result (str/upper-case "FooBar")))))
 
 (deftest capitalize-test
+  (evalll ""
+          '(do (ns foo (:require [squint.string :as str]))
+               (def result (str/capitalize ""))))
+
+  (evalll "X"
+          '(do (ns foo (:require [squint.string :as str]))
+               (def result (str/capitalize "x"))))
+
   (evalll "Foobar"
           '(do (ns foo (:require [squint.string :as str]))
                (def result (str/capitalize "FooBar")))))
